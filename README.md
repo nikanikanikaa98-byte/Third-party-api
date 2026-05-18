@@ -59,23 +59,26 @@ python main.py --help
 
 ChatGPT was used as an AI coding assistant during this assignment.
 
-## AI assistance was used for:
+### AI assistance was used for:
 
 - planning the implementation steps;
 - explaining API integration logic;
 - designing validation and error handling;
-- drafting the Python code;
-- drafting the part of README.
+- drafting parts of the Python code;
+- drafting parts of the README.
 
-## My own implementation decisions included:
+### My own work included:
 
-- using a Python CLI script;
+- running and testing the utility locally;
+- manually updating and modifying the Python code step by step;
+- choosing the Python CLI script format;
 - saving normalized data as CSV;
 - generating a Markdown report;
-- treating brand as optional;
+- treating `brand` as optional;
 - treating low stock as suspicious rather than invalid;
 - adding command-line arguments for flexibility;
-- Update and modify README.
+- updating and modifying the README;
+- reviewing the generated CSV and report outputs.
 ## Validation Rules Implemented
 
 The following validation rules are implemented:
@@ -104,21 +107,13 @@ Error Handling Implemented
 ## The utility handles the following failure cases:
 
 - API unavailable or connection failure;
-
 - request timeout;
-
 - non-200 HTTP response;
-
 - invalid JSON response;
-
 - missing products field;
-
 - unexpected response format;
-
 - products field is not a list;
-
 - empty product list;
-
 - product-level missing or invalid fields.
 
 
@@ -141,28 +136,29 @@ What Could Go Wrong With This Third-Party API Integration in Real Life
 
 Possible real-life integration risks include:
 
-the API may become unavailable;
-the API may become slow and cause timeouts;
-the response format may change;
-required fields may be removed or renamed;
-field data types may change;
-the API may return invalid or incomplete data;
-the API may return invalid JSON;
-pagination may be required for larger datasets;
-rate limits may affect frequent requests;
-duplicate product IDs may appear;
-product data may become stale or inconsistent.
-Future Improvements With More Time
+- the API may become unavailable;
+- the API may become slow and cause timeouts;
+- the response format may change;
+- required fields may be removed or renamed;
+- field data types may change;
+- the API may return invalid or incomplete data;
+- the API may return invalid JSON;
+- pagination may be required for larger datasets;
+- rate limits may affect frequent requests;
+- duplicate product IDs may appear;
+- product data may become stale or inconsistent.
+
+## Future Improvements With More Time
 
 Possible future improvements:
 
-add automated tests with mocked API responses;
-add retry logic for temporary API failures;
-add structured logging;
-add JSON output support;
-add SQLite storage;
-add duplicate ID detection;
-add pagination with limit and skip;
-add .env configuration support;
-split the code into multiple modules;
-add stronger type hints and schema validation.
+- add automated tests with mocked API responses;
+- add retry logic for temporary API failures;
+- add structured logging;
+- add JSON output support;
+- add SQLite storage;
+- add duplicate ID detection;
+- add pagination with limit and skip;
+- add .env configuration support;
+- split the code into multiple modules;
+- add stronger type hints and schema validation.
