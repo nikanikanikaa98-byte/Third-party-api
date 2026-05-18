@@ -122,17 +122,18 @@ If a critical API or response error occurs, the program prints a clear error mes
 ### Example:
 
 Error: API returned non-200 status code: 404
-Assumptions and Tradeoffs
-The API response is expected to contain a top-level products list.
-Only the required selected fields are saved to the local CSV file.
-brand is treated as optional.
-Low stock products are treated as suspicious, not invalid.
-Average price is calculated using valid products only.
-CSV was chosen because it is simple and easy to inspect.
-Markdown was chosen for the report because it is lightweight and readable.
-The project is kept as a single Python file to match the scope of a small practical utility.
-Automated tests were not included because they were optional.
-What Could Go Wrong With This Third-Party API Integration in Real Life
+- Assumptions and Tradeoffs
+- The API response is expected to contain a top-level products list.
+- Only the required selected fields are saved to the local CSV file.
+- brand is treated as optional.
+- Low stock products are treated as suspicious, not invalid.
+- Average price is calculated using valid products only.
+- CSV was chosen because it is simple and easy to inspect.
+- Markdown was chosen for the report because it is lightweight and readable.
+- The project is kept as a single Python file to match the scope of a small practical utility.
+- Automated tests were not included because they were optional.
+
+## What Could Go Wrong With This Third-Party API Integration in Real Life
 
 Possible real-life integration risks include:
 
