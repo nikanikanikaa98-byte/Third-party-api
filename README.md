@@ -50,52 +50,52 @@ python main.py --limit 50 --output products.csv --report custom_report.md
 python main.py --help
 ```
 ## Used Libraries and Why They Were Chosen
-requests — used to make HTTP requests to the DummyJSON Products API.
-argparse — used to support command-line arguments such as --limit, --output, --report, --timeout, and --low-stock-threshold.
-csv — used to save normalized product data into a CSV file.
-datetime — used to add a generation timestamp to the report.
-sys — used to exit the program gracefully when a critical error occurs.
+- requests — used to make HTTP requests to the DummyJSON Products API.
+- argparse — used to support command-line arguments such as --limit, --output, --report, --timeout, and --low-stock-threshold.
+- csv — used to save normalized product data into a CSV file.
+- datetime — used to add a generation timestamp to the report.
+-- sys — used to exit the program gracefully when a critical error occurs.
 ## AI Tools Usage Disclosure
 
 ChatGPT was used as an AI coding assistant during this assignment.
 
 ## AI assistance was used for:
 
-planning the implementation steps;
-explaining API integration logic;
-designing validation and error handling;
-drafting the Python code;
-draftung the part of README.
+- planning the implementation steps;
+- explaining API integration logic;
+- designing validation and error handling;
+- drafting the Python code;
+- drafting the part of README.
 
 ## My own implementation decisions included:
 
-using a Python CLI script;
-saving normalized data as CSV;
-generating a Markdown report;
-treating brand as optional;
-treating low stock as suspicious rather than invalid;
-adding command-line arguments for flexibility;
-Update and modify README.
+- using a Python CLI script;
+- saving normalized data as CSV;
+- generating a Markdown report;
+- treating brand as optional;
+- treating low stock as suspicious rather than invalid;
+- adding command-line arguments for flexibility;
+- Update and modify README.
 ## Validation Rules Implemented
 
 The following validation rules are implemented:
 
-id must exist.
-title must not be empty.
-price must be a positive number.
-rating must be between 0 and 5.
-stock must not be negative.
-required fields are not silently ignored if missing.
+- id must exist.
+- title must not be empty.
+- price must be a positive number.
+- rating must be between 0 and 5.
+- stock must not be negative.
+- required fields are not silently ignored if missing.
 
 The utility validates the following required fields:
 
-id
-title
-category
-price
-discountPercentage
-rating
-stock
+- id
+- title
+- category
+- price
+- discountPercentage
+- rating
+- stock
 
 ## The brand field is optional because the assignment says brand if available.
 
@@ -103,15 +103,24 @@ Error Handling Implemented
 
 ## The utility handles the following failure cases:
 
-API unavailable or connection failure;
-request timeout;
-non-200 HTTP response;
-invalid JSON response;
-missing products field;
-unexpected response format;
-products field is not a list;
-empty product list;
-product-level missing or invalid fields.
+- API unavailable or connection failure;
+
+- request timeout;
+
+- non-200 HTTP response;
+
+- invalid JSON response;
+
+- missing products field;
+
+- unexpected response format;
+
+- products field is not a list;
+
+- empty product list;
+
+- product-level missing or invalid fields.
+
 
 If a critical API or response error occurs, the program prints a clear error message and exits gracefully.
 
