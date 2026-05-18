@@ -1,0 +1,11 @@
+id,title,category,brand,price,discountPercentage,rating,stock
+11,Annibale Colombo Bed,furniture,Annibale Colombo,1899.99,8.57,4.77,88
+12,Annibale Colombo Sofa,furniture,Annibale Colombo,2499.99,14.4,3.92,60
+13,Bedside Table African Cherry,furniture,Furniture Co.,299.99,19.09,2.87,64
+14,Knoll Saarinen Executive Conference Chair,furniture,Knoll,499.99,2.01,4.88,26
+15,Wooden Bathroom Sink With Mirror,furniture,Bath Trends,799.99,8.8,3.59,7
+16,Apple,groceries,,1.99,12.62,4.19,8
+17,Beef Steak,groceries,,12.99,9.61,4.47,86
+18,Cat Food,groceries,,8.99,9.58,3.13,46
+19,Chicken Meat,groceries,,9.99,13.7,3.19,97
+20,Cooking Oil,groceries,,4.99,9.33,4.8,10

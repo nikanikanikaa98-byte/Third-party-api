@@ -1,22 +1,21 @@
 # Third-Party API Integration Report
 
-Generated at: 2026-05-18T17:32:40
+Generated at: 2026-05-18T17:32:29
 
 ## Summary
 
-- Total products fetched: 30
-- Valid products count: 30
+- Total products fetched: 10
+- Valid products count: 10
 - Invalid products count: 0
-- Invalid or suspicious products count: 2
-- Average price: 219.25
+- Invalid or suspicious products count: 0
+- Average price: 603.89
 - Low stock threshold: <= 5
-- Low stock products count: 2
-- Cleaned output file: `cleaned_products.csv`
+- Low stock products count: 0
+- Cleaned output file: `skip_products.csv`
 
 ## Products With Low Stock
 
-- ID 9: Dolce Shine Eau de | stock: 4 | price: 69.99
-- ID 26: Green Chili Pepper | stock: 3 | price: 0.99
+No low stock products found.
 
 ## Top 5 Most Expensive Products
 

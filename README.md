@@ -38,10 +38,33 @@ This generates:
 cleaned_products.csv
 report.md
 
+Run with pagination-style options:
+
+```bash
+python main.py --limit 10 --skip 10
+
 ## Optional run with custom arguments:
 
 ```text
 python main.py --limit 50 --output products.csv --report custom_report.md
+```
+
+Run with retries:
+
+```text
+python main.py --retries 3
+```
+
+Run with verbose logging:
+
+```text
+python main.py --verbose
+```
+
+Run tests:
+
+```text
+pytest
 ```
 
 ## Show available options:
@@ -55,6 +78,8 @@ python main.py --help
 - csv — used to save normalized product data into a CSV file.
 - datetime — used to add a generation timestamp to the report.
 -- sys — used to exit the program gracefully when a critical error occurs.
+- `logging` — used to provide basic runtime information and optional verbose output.
+- `pytest` — used for automated tests with mocked API responses.
 ## AI Tools Usage Disclosure
 
 ChatGPT was used as an AI coding assistant during this assignment.
@@ -153,13 +178,9 @@ Possible real-life integration risks include:
 
 Possible future improvements:
 
-- add automated tests with mocked API responses;
-- add retry logic for temporary API failures;
-- add structured logging;
 - add JSON output support;
 - add SQLite storage;
 - add duplicate ID detection;
-- add pagination with limit and skip;
 - add .env configuration support;
 - split the code into multiple modules;
 - add stronger type hints and schema validation.
