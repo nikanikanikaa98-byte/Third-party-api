@@ -2,185 +2,68 @@
 
 ## Short Project Summary
 
-This project is a small Python command-line utility that integrates with the public DummyJSON Products API:
+This project is a Python command-line utility that integrates with the public DummyJSON Products API:
 
-```text
 https://dummyjson.com/products
-```
 
-The utility fetches product data, normalizes selected fields, validates product records, detects invalid or suspicious records, saves cleaned data to a CSV file, and generates a short Markdown report.
+The utility fetches product data, normalizes selected fields, validates product records, detects invalid or suspicious entries, saves cleaned data to a CSV file, stores data into a local SQLite database, and generates a Markdown report.
 
-# Exact Run Instructions
-1. Create a virtual environment
-```text
+The project also supports multiple connectors via a Factory pattern, allowing switching between real and mock data sources.
+
+---
+
+# Architecture Overview
+
+The project is structured as a small integration pipeline:
+
+API / Mock Connector
+        ↓
+   Normalization
+        ↓
+   Validation Layer
+        ↓
+   Service Layer (business logic)
+        ↓
+ CSV Export + SQLite Storage
+        ↓
+   Report Generation
+
+Key design patterns used:
+- Factory Pattern (connector creation)
+- Repository Pattern (database abstraction)
+- Service Layer (business logic separation)
+- Mock Connector (testing without external API)
+
+---
+
+# Run Instructions
+
+## Create virtual environment
 python -m venv .venv
-```
 
-On Windows PowerShell, activate it:
-
-```text
+## Activate (Windows PowerShell)
 .\.venv\Scripts\Activate.ps1
-```
-2. Install dependencies
-```text
+
+## Install dependencies
 pip install -r requirements.txt
-```
-3. Run the utility
 
-Default run:
+---
 
-```text
-python main.py
-```
+# Run
 
-This generates:
+python main.py --connector dummyjson
+python main.py --connector mock
 
-cleaned_products.csv
-report.md
+---
 
-Run with pagination-style options:
+# Output Files
 
-```bash
-python main.py --limit 10 --skip 10
+- cleaned_products.csv
+- report.md
+- database/products.db
 
-## Optional run with custom arguments:
+---
 
-```text
-python main.py --limit 50 --output products.csv --report custom_report.md
-```
+# AI Tools Disclosure
 
-Run with retries:
-
-```text
-python main.py --retries 3
-```
-
-Run with verbose logging:
-
-```text
-python main.py --verbose
-```
-
-Run tests:
-
-```text
-pytest
-```
-
-## Show available options:
-
-```text
-python main.py --help
-```
-## Used Libraries and Why They Were Chosen
-- requests — used to make HTTP requests to the DummyJSON Products API.
-- argparse — used to support command-line arguments such as --limit, --output, --report, --timeout, and --low-stock-threshold.
-- csv — used to save normalized product data into a CSV file.
-- datetime — used to add a generation timestamp to the report.
--- sys — used to exit the program gracefully when a critical error occurs.
-- `logging` — used to provide basic runtime information and optional verbose output.
-- `pytest` — used for automated tests with mocked API responses.
-## AI Tools Usage Disclosure
-
-ChatGPT was used as an AI coding assistant during this assignment.
-
-### AI assistance was used for:
-
-- planning the implementation steps;
-- explaining API integration logic;
-- designing validation and error handling;
-- drafting parts of the Python code;
-- drafting parts of the README.
-
-### My own work included:
-
-- running and testing the utility locally;
-- manually updating and modifying the Python code step by step;
-- choosing the Python CLI script format;
-- saving normalized data as CSV;
-- generating a Markdown report;
-- treating `brand` as optional;
-- treating low stock as suspicious rather than invalid;
-- adding command-line arguments for flexibility;
-- updating and modifying the README;
-- reviewing the generated CSV and report outputs.
-## Validation Rules Implemented
-
-The following validation rules are implemented:
-
-- id must exist.
-- title must not be empty.
-- price must be a positive number.
-- rating must be between 0 and 5.
-- stock must not be negative.
-- required fields are not silently ignored if missing.
-
-The utility validates the following required fields:
-
-- id
-- title
-- category
-- price
-- discountPercentage
-- rating
-- stock
-
-## The brand field is optional because the assignment says brand if available.
-
-Error Handling Implemented
-
-## The utility handles the following failure cases:
-
-- API unavailable or connection failure;
-- request timeout;
-- non-200 HTTP response;
-- invalid JSON response;
-- missing products field;
-- unexpected response format;
-- products field is not a list;
-- empty product list;
-- product-level missing or invalid fields.
-
-
-If a critical API or response error occurs, the program prints a clear error message and exits gracefully.
-
-### Example:
-
-Error: API returned non-200 status code: 404
-- Assumptions and Tradeoffs
-- The API response is expected to contain a top-level products list.
-- Only the required selected fields are saved to the local CSV file.
-- brand is treated as optional.
-- Low stock products are treated as suspicious, not invalid.
-- Average price is calculated using valid products only.
-- CSV was chosen because it is simple and easy to inspect.
-- Markdown was chosen for the report because it is lightweight and readable.
-- The project is kept as a single Python file to match the scope of a small practical utility.
-- Automated tests were not included because they were optional.
-
-## What Could Go Wrong With This Third-Party API Integration in Real Life
-
-Possible real-life integration risks include:
-
-- the API may become unavailable;
-- the API may become slow and cause timeouts;
-- the response format may change;
-- required fields may be removed or renamed;
-- field data types may change;
-- the API may return invalid or incomplete data;
-- the API may return invalid JSON;
-- pagination may be required for larger datasets;
-- rate limits may affect frequent requests;
-- duplicate product IDs may appear;
-- product data may become stale or inconsistent.
-
-## Future Improvements With More Time
-
-Possible future improvements:
-
-- add JSON output support;
-- add SQLite storage;
-- add duplicate ID detection;
-- add .env configuration support;
-- split the code into multiple modules;
-- add stronger type hints and schema validation.
+ChatGPT assisted in architecture design, debugging, and documentation.
