@@ -39,21 +39,28 @@ Key design patterns used:
 # Run Instructions
 
 ## Create virtual environment
+```
 python -m venv .venv
+```
 
 ## Activate (Windows PowerShell)
+```
 .\.venv\Scripts\Activate.ps1
+```
 
 ## Install dependencies
+```
 pip install -r requirements.txt
-
+```
 ---
 
 # Run
-
+```
 python main.py --connector dummyjson
+```
+```
 python main.py --connector mock
-
+```
 ---
 
 # Output Files
